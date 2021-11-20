@@ -18,12 +18,10 @@ import './Header.css'
 
 const Header = () => {
 
-    const today = new Date().format
-    const tomorrow = new Date(today);
-    tomorrow.setDate(tomorrow.getDate() + 1)
+
 
     const [arrivalValue, setArrivalValue] = useState(new Date());
-    const [departureValue, setDepartureValue] = useState(tomorrow);
+    const [departureValue, setDepartureValue] = useState(new Date());
 
     const [adult, setAdult] = useState(3);
     const [baby, setBaby] = useState(0);
@@ -101,14 +99,13 @@ const Header = () => {
                                     <LocalizationProvider className="date-content" dateAdapter={AdapterDateFns}>
                                         <Stack spacing={3}>
                                             <DatePicker
-
-                                                openTo="day"
-                                                views={['day', 'month', 'year']}
+                                                disablePast
+                                                openTo="year"
                                                 value={arrivalValue}
                                                 onChange={(newValue) => {
                                                     newValue && setArrivalValue(newValue);
                                                 }}
-                                                renderInput={(params) => <TextField {...params} />}
+                                                renderInput={(params) => <TextField {...params} label="Arrival" />}
                                             />
                                         </Stack>
                                     </LocalizationProvider>
@@ -125,14 +122,13 @@ const Header = () => {
                                     <LocalizationProvider dateAdapter={AdapterDateFns}>
                                         <Stack spacing={3}>
                                             <DatePicker
-                                                label="Departure"
-                                                openTo="day"
-                                                views={['day', 'month', 'year']}
+                                                disablePast
+                                                openTo="year"
                                                 value={departureValue}
                                                 onChange={(newValue) => {
                                                     newValue && setDepartureValue(newValue);
                                                 }}
-                                                renderInput={(params) => <TextField {...params} />}
+                                                renderInput={(params) => <TextField {...params} label="Departure" />}
                                             />
                                         </Stack>
                                     </LocalizationProvider>
