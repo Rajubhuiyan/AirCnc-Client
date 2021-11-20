@@ -5,7 +5,7 @@ import StarIcon from '@mui/icons-material/Star';
 const HomesConainer = ({home}) => {
 
     return (
-        <Grid item sx={12} md={4} lg={4}>
+        <Grid item  md={4} lg={4}>
             <Card style={{ border: 'none', minWidth: "283px",boxShadow: "none" }}>
                 <CardActionArea>
                     <CardMedia

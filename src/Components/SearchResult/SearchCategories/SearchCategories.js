@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 const SearchCategories = ({ sd }) => {
 
     return (
-        <Grid item sx={12} sm={12} md={12} lg={12} style={{ marginLeft: '20px' }}>
+        <Grid item sm={12} md={12} lg={12} style={{ marginLeft: '20px' }}>
             <Link style={{textDecoration: "none"}} to={`/reserve/${sd._id}`}>
                 <Card className="slider-card" sx={{ mb: 5, }}>
                     <CardActionArea>
                         <Grid spacing={5} container>
-                            <Grid item sx={6} sm={6} md={4}>
+                            <Grid item  sm={6} md={4}>
                                 <CardMedia
                                     className="slider-img"
                                     sx={{ borderRadius: 3, width: 220, mt: 2, ml: 2 }}
@@ -21,7 +21,7 @@ const SearchCategories = ({ sd }) => {
                                     alt="green iguana"
                                 />
                             </Grid>
-                            <Grid item sx={6} sm={6} md={8}>
+                            <Grid item  sm={6} md={8}>
                                 <CardContent>
                                     <h3>{sd.name}</h3>
                                     <p>{sd.guest} Guest, {sd.bed} Beds, {sd.bedroom} Bedrooms, {sd.bath} Baths</p>

@@ -158,13 +158,13 @@ const Header = () => {
                                         </Grid>
                                         <Grid item xs={4} md={4}>
                                             <Grid container spacing={2}>
-                                                <Grid item sx={6} md={5}>
+                                                <Grid item xs={6} md={5}>
                                                     <AddIcon onClick={() => setAdult(adult + 1)} style={{ cursor: 'pointer' }} />
                                                 </Grid>
-                                                <Grid item sx={3} md={4}>
+                                                <Grid item xs={3} md={4}>
                                                     <small style={{ fontSize: '20px', fontWeight: 'bold' }}>{adult}</small>
                                                 </Grid>
-                                                <Grid item sx={3} md={3}>
+                                                <Grid item xs={3} md={3}>
                                                     <RemoveIcon onClick={() => adult > 1 ? setAdult(adult - 1) : 0} style={{ cursor: 'pointer' }} />
                                                 </Grid>
                                             </Grid>
@@ -178,13 +178,13 @@ const Header = () => {
                                         </Grid>
                                         <Grid item xs={4} md={4}>
                                             <Grid container spacing={2}>
-                                                <Grid item sx={6} md={5}>
+                                                <Grid item xs={6} md={5}>
                                                     <AddIcon onClick={() => setChild(child + 1)} style={{ cursor: 'pointer' }} />
                                                 </Grid>
-                                                <Grid item sx={3} md={4}>
+                                                <Grid item xs={3} md={4}>
                                                     <small style={{ fontSize: '20px', fontWeight: 'bold' }}>{child}</small>
                                                 </Grid>
-                                                <Grid item sx={3} md={3}>
+                                                <Grid item xs={3} md={3}>
                                                     <RemoveIcon onClick={() => child > 0 ? setChild(child - 1) : 0} style={{ cursor: 'pointer' }} />
                                                 </Grid>
                                             </Grid>
@@ -198,13 +198,13 @@ const Header = () => {
                                         </Grid>
                                         <Grid item xs={4} md={4}>
                                             <Grid container spacing={2}>
-                                                <Grid item sx={6} md={5}>
+                                                <Grid item xs={6} md={5}>
                                                     <AddIcon onClick={() => setBaby(baby + 1)} style={{ cursor: 'pointer' }} />
                                                 </Grid>
-                                                <Grid item sx={3} md={4}>
+                                                <Grid item xs={3} md={4}>
                                                     <small style={{ fontSize: '20px', fontWeight: 'bold' }}>{baby}</small>
                                                 </Grid>
-                                                <Grid item sx={3} md={3}>
+                                                <Grid item xs={3} md={3}>
                                                     <RemoveIcon onClick={() => baby > 0 ? setBaby(baby - 1) : 0} style={{ cursor: 'pointer' }} />
                                                 </Grid>
                                             </Grid>

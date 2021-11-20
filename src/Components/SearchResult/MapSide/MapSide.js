@@ -35,7 +35,7 @@ const MapSide = ({ searchDataFromDb }) => {
             >
                 <GoogleMap
                     mapContainerStyle={containerStyle}
-                    center={location}
+                    center={latitued && location}
                     zoom={11}
                 >
 

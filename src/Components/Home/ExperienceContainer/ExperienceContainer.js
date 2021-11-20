@@ -7,7 +7,7 @@ import StarIcon from '@mui/icons-material/Star';
 const ExperienceContainer = ({ exData }) => {
 
     return (
-        <Grid item sx={6} md={3} lg={3}>
+        <Grid item md={3} lg={3}>
             <Card style={{ border: 'none', maxWidth: '208px', boxShadow: "none"  }}>
                 <CardActionArea>
                     <CardMedia
