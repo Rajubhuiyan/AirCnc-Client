@@ -8,7 +8,7 @@ const Loader = () => {
             justifyContent="center"
             alignItems="center"
             minHeight="30vh"
-            minWidth="100vh"
+            minWidth="100%"
         >
             <CircularProgress/>
         </Box>

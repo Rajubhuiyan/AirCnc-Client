@@ -14,11 +14,17 @@ import HomesConainer from '../HomesContainer/HomesConainer';
 import Loader from '../../Shared/Navbar/Loader/Loader';
 import useAuth from '../../Hooks/useAuth';
 import { useNavigate } from "react-router-dom";
+import './Header.css'
 
 const Header = () => {
 
+    const today = new Date().format
+    const tomorrow = new Date(today);
+    tomorrow.setDate(tomorrow.getDate() + 1)
+
     const [arrivalValue, setArrivalValue] = useState(new Date());
-    const [departureValue, setDepartureValue] = useState(new Date());
+    const [departureValue, setDepartureValue] = useState(tomorrow);
+
     const [adult, setAdult] = useState(3);
     const [baby, setBaby] = useState(0);
     const [child, setChild] = useState(2);
@@ -71,10 +77,10 @@ const Header = () => {
     return (
         <div >
             <Grid container spacing={2}>
-                <Grid sx={{ mx: 7, }} item xs={12} md={3}>
+                <Grid className="slider-container" sx={{ mx: 7 }} item xs={12} md={3}>
                     <Typography sx={{ mt: 5 }} variant="h6">Where Do You Want To Go</Typography>
                     <Grid container>
-                        <Grid item xs={12} md={12}>
+                        <Grid item xs={10} md={12}>
                             <Card style={{ boxShadow: "1px 1px 8px lightgrey" }} sx={{ maxHeight: 60, minWidth: 200, mt: 5, pb: 4 }}>
                                 <CardContent>
                                     <Typography variant="h6">
@@ -87,12 +93,12 @@ const Header = () => {
                     </Grid>
 
                     <Grid container sx={{ mb: 5 }} spacing={3}>
-                        <Grid scx="true" item xs={12} md={6} lg={6}>
-                            <Card style={{ boxShadow: "1px 1px 8px lightgrey" }} sx={{ maxHeight: 80, minWidth: 190, mt: 5, }}>
+                        <Grid scx="true" item xs={12} sm={6} md={6} lg={6}>
+                            <Card className="date-container" style={{ boxShadow: "1px 1px 8px lightgrey" }}>
                                 <CardContent >
 
 
-                                    <LocalizationProvider dateAdapter={AdapterDateFns}>
+                                    <LocalizationProvider className="date-content" dateAdapter={AdapterDateFns}>
                                         <Stack spacing={3}>
                                             <DatePicker
 
@@ -111,8 +117,8 @@ const Header = () => {
                                 </CardContent>
                             </Card>
                         </Grid>
-                        <Grid item xs={12} md={6} lg={6}>
-                            <Card style={{ boxShadow: "1px 1px 8px lightgrey" }} sx={{ maxHeight: 80, minWidth: 190, mt: 5, }}>
+                        <Grid item xs={12} sm={6} md={6} lg={6}>
+                            <Card className="date-container" style={{ boxShadow: "1px 1px 8px lightgrey" }}>
                                 <CardContent>
 
 
@@ -138,7 +144,7 @@ const Header = () => {
 
 
                     <Grid container>
-                        <Grid item xs={12} md={12} lg={12}>
+                        <Grid item xs={10} sm={11} md={12} lg={12}>
                             <Accordion style={{ boxShadow: "1px 1px 8px lightgrey" }}>
                                 <AccordionSummary
                                     expandIcon={<ExpandMoreIcon />}
@@ -211,11 +217,11 @@ const Header = () => {
                                 </AccordionDetails>
                             </Accordion>
                         </Grid>
-                        <Button onClick={handleSearchData} sx={{ mt: 3 }} style={{ minWidth: '400px' }} color="secondary">Search</Button>
+                        <Button className="search-button" onClick={handleSearchData} sx={{ mt: 3 }} style={{ minWidth: '300px' }} color="secondary">Search</Button>
                     </Grid>
 
                 </Grid>
-                <Grid item style={{ marginTop: '20px' }} xs={12} md={7}>
+                <Grid item style={{ marginTop: '20px', marginLeft: '2vw' }} xs={12} md={7}>
                     <h4>Experiences</h4>
                     <Grid container spacing={2}>
                         {
