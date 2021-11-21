@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const useFirebase = () => {
 
@@ -6,6 +6,7 @@ const useFirebase = () => {
     const [searchData, setSearchData] = useState({});
     return {
         isLoading,
+        setIsLoading,
         searchData,
         setSearchData
     }

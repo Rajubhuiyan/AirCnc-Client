@@ -1,11 +1,9 @@
 import React from 'react';
 import { AppBar, Button, Container, Link, Toolbar, Typography } from '@mui/material';
-import useAuth from '../../Hooks/useAuth';
 import { NavLink } from 'react-router-dom';
 
 const SecondNav = () => {
 
-    const { searchData, setSearchData } = useAuth();
 
     return (
         <div>

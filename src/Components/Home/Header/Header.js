@@ -213,11 +213,11 @@ const Header = () => {
                                 </AccordionDetails>
                             </Accordion>
                         </Grid>
-                        <Button className="search-button" onClick={handleSearchData} sx={{ mt: 3 }} style={{ minWidth: '300px' }} color="secondary">Search</Button>
+                        <Button className="reserve-button" onClick={handleSearchData} sx={{ mt: 3 }}>Search</Button>
                     </Grid>
 
                 </Grid>
-                <Grid item style={{ marginTop: '20px', marginLeft: '2vw' }} xs={12} md={7}>
+                <Grid item style={{ marginTop: '20px', marginLeft: '2vw', marginBottom : '20px' }} xs={12} md={7}>
                     <h4>Experiences</h4>
                     <Grid container spacing={2}>
                         {

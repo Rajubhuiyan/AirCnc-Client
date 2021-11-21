@@ -1,0 +1,12 @@
+.dates-container{
+    border: 1px solid lightgrey;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.reserve-button{
+    width: 100%;
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    background-image: linear-gradient(to right, #2bde8c, #59e867);
+    color: whitesmoke !important;
+}
