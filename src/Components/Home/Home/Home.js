@@ -1,11 +1,11 @@
 import * as React from 'react';
-import Navbar from '../../Shared/Navbar/Navbar';
+import SecondNav from '../../Shared/SecondNav/SecondNav';
 import Header from '../Header/Header';
 const Home = () => {
 
     return (
         <>
-            <Navbar></Navbar>
+            <SecondNav/>
             <Header></Header>
         </>
     );

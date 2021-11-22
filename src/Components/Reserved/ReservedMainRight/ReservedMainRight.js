@@ -8,12 +8,13 @@ import { useNavigate } from 'react-router';
 const ReservedMainRight = ({ reserveData }) => {
 
 
-    
+    const { user, token } = useAuth();
+
 
     const navigate = useNavigate();
-    const { searchData } = useAuth();
+    const { searchData, setReserveInfo, reserveInfo } = useAuth();
     const { fromDate, toDate } = searchData;
-    const {  price, rate } = reserveData;
+    const { price, rate, name, loc } = reserveData;
 
     const [totalNight, setTotalNight] = useState(1)
 
@@ -44,6 +45,25 @@ const ReservedMainRight = ({ reserveData }) => {
 
     const totalPrice = cleaningFee + serviceFee + newPrice;
 
+
+    const handleReserveData = () => {
+        const personalInfo = { name: user.displayName, photo: user.photoURL, token: token }
+        const reservedInfo = { totalPrice: totalPrice, totalNight: totalNight, fromDate: fromDate.toLocaleDateString(), toDate: toDate.toLocaleDateString(), hotelName: name, perDayPrice: price, location: loc };
+        const finalData = { email: user.email, personalInfo: personalInfo, reservedInfo: reservedInfo };
+        fetch('http://localhost:5000/reserveSaveInDb', {
+            method: 'POST',
+            headers: { 'content-type': 'application/json' },
+            body: JSON.stringify(finalData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data) {
+                    setReserveInfo(data.reservedInfo)
+                    navigate("/review/")
+                }
+            })
+            .catch(err => console.log(err))
+    }
 
 
 
@@ -107,7 +127,7 @@ const ReservedMainRight = ({ reserveData }) => {
 
                     </CardContent>
                     <CardActions>
-                        <Button className="reserve-button">Reserve</Button>
+                        <Button onClick={handleReserveData} className="reserve-button">Reserve</Button>
                     </CardActions>
                     <p style={{ textAlign: 'center', marginTop: '-4px', color: '#acacac' }}>You won't be changed yet</p>
                 </Box>

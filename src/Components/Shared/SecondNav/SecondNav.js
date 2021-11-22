@@ -1,9 +1,12 @@
 import React from 'react';
 import { AppBar, Button, Container, Link, Toolbar, Typography } from '@mui/material';
 import { NavLink } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 
 const SecondNav = () => {
 
+
+    const { user, handleSignOut } = useAuth();
 
     return (
         <div>
@@ -17,9 +20,9 @@ const SecondNav = () => {
                 >
                     <Container>
                         <Toolbar sx={{ flexWrap: 'wrap' }}>
-                                <Typography fontWeight='500' variant="h3" color="#2bde8c" noWrap sx={{ flexGrow: 1 }}>
-                                    <NavLink style={{color : '#2bde8c', textDecoration: "none"}} to="/">Air Cnc</NavLink>
-                                </Typography>
+                            <Typography fontWeight='500' variant="h3" color="#2bde8c" noWrap sx={{ flexGrow: 1 }}>
+                                <NavLink style={{ color: '#2bde8c', textDecoration: "none" }} to="/">Air Cnc</NavLink>
+                            </Typography>
                             <nav>
                                 <Link
                                     underline="none"
@@ -40,9 +43,17 @@ const SecondNav = () => {
                                     Sign In
                                 </Link>
                             </nav>
-                            <Button href="#" variant="outlined" sx={{ px: 3, py: 1, my: 1, mx: 1.5 }}>
-                                Login
-                            </Button>
+                            {
+                                user.email ?
+                                    <Button onClick={handleSignOut} variant="outlined" sx={{ px: 3, py: 1, my: 1, mx: 1.5 }}>
+                                        Log Out
+                                    </Button> :
+                                    <NavLink style={{textDecoration: "none" }} to="/login">
+                                        <Button variant="outlined" sx={{ px: 3, py: 1, my: 1, mx: 1.5 }}>
+                                            Login
+                                        </Button>
+                                    </NavLink>
+                            }
                         </Toolbar>
                     </Container>
                 </AppBar>

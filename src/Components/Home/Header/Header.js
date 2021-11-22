@@ -30,7 +30,7 @@ const Header = () => {
     const [homesData, setHomesData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [location, setLocation] = useState('Dhaka');
-    const { setSearchData } = useAuth();
+    const { setSearchData, } = useAuth();
 
     const navigate = useNavigate();
 
