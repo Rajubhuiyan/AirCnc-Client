@@ -18,7 +18,7 @@ const SearchMain = () => {
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/getBySearch/${searchData.searchCity}`)
+        fetch(`https://aircnc00.herokuapp.com/getBySearch/${searchData.searchCity}`)
             .then(res => res.json())
             .then(data => {
                 setSearchDataFromDb(data)
@@ -27,6 +27,7 @@ const SearchMain = () => {
                 }
                 setIsLoading(false)
             })
+            .catch(err => console.log(err))
     }, [searchData, load])
 
     

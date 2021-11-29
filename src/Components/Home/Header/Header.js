@@ -56,7 +56,7 @@ const Header = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/getHotels')
+        fetch('https://aircnc00.herokuapp.com/getHotels')
             .then(res => res.json())
             .then(data => {
                 const spliceData = data.splice(0, 4);
@@ -66,6 +66,7 @@ const Header = () => {
                 setHomesData(homesData);
                 setIsLoading(false)
             })
+            .catch(err => console.log(err))
     }, []);
 
 

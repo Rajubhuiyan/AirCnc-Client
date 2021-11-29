@@ -18,7 +18,7 @@ const ReviewHouseAndPaidContainer = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/getReserveData?email=${user.email}`)
+        fetch(`https://aircnc00.herokuapp.com/getReserveData?email=${user.email}`)
         .then(res => res.json())
         .then(data => setReserveData(data))
         .catch(err => console.log(err))
@@ -28,7 +28,7 @@ const ReviewHouseAndPaidContainer = () => {
         <Container style={{height: '100vh', alignItems: 'center', display: 'flex'}}>
             <Grid container spacing={6}>
                 <Grid item xs={12} sm={12} md={6}>
-                    <Box><h3 style={{ fontWeight: '400' }}> <span>1. Reviews House Rules {'>'} </span> <span> 2. Who Is Coming {'>'}</span> <span> 3. Confirm And Pay </span> </h3></Box>
+                    <Box ><h3 style={{ fontWeight: '400', }}> <span>1. Reviews House Rules {'>'} </span> <span> 2. Who Is Coming {'>'}</span> <span> 3. Confirm And Pay </span> </h3></Box>
                     <Box>
                         {
                             houseRule && <HouseRules isReview={isReview} isHouseRule={isHouseRule} reserveData={reserveData}></HouseRules>

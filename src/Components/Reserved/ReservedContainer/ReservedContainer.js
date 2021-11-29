@@ -16,7 +16,7 @@ const ReservedContainer = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/getByReserved/${reserveId}`)
+        fetch(`https://aircnc00.herokuapp.com/getByReserved/${reserveId}`)
             .then(res => res.json())
             .then(data => {
                 if (data) {

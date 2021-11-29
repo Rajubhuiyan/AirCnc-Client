@@ -33,15 +33,6 @@ const SecondNav = () => {
                                 >
                                     Help
                                 </Link>
-                                <Link
-                                    underline="none"
-                                    variant="button"
-                                    color="text.primary"
-                                    href="#"
-                                    sx={{ mx: 1 }}
-                                >
-                                    Sign In
-                                </Link>
                             </nav>
                             {
                                 user.email ?

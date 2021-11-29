@@ -6,7 +6,7 @@ const PaymentSucces = () => {
     const { payment } = useAuth();
 
     useEffect(() => {
-        fetch('http://localhost:5000/savePaymentToDb', {
+        fetch('https://aircnc00.herokuapp.com/savePaymentToDb', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payment)
