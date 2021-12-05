@@ -27,7 +27,6 @@ const ReservedContainer = () => {
             .catch(err => console.error(err))
     }, [reserveId, load, isLoading, setIsLoading]);
 
-    console.log(reserveData);
 
     return (
         <div>

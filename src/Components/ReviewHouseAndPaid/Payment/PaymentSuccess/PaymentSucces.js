@@ -1,9 +1,12 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import { Button } from '@mui/material';
-import { Link } from 'react-router-dom';
+import { Link,} from 'react-router-dom';
 const PaymentSucces = () => {
     const { payment } = useAuth();
+
+
+    const [isPaymentSuccess, setIsPaymentSuccess] =useState(false);
 
     useEffect(() => {
         fetch('https://aircnc00.herokuapp.com/savePaymentToDb', {
@@ -12,9 +15,27 @@ const PaymentSucces = () => {
             body: JSON.stringify(payment)
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                if (data) {
+                    setIsPaymentSuccess(true)
+                }
+            })
             .catch(err => console.log(err))
     }, [])
+
+    useEffect(() => {
+        
+        if (isPaymentSuccess === true) {
+            fetch(`http://localhost:5000/isPaymentSuccess/${payment.reserveInfo._id}`, {
+                method: 'PUT',
+                headers: { 'content-Type': 'application/json'}
+            })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.error(err))
+        }
+
+    }, [isPaymentSuccess])
 
 
     return (

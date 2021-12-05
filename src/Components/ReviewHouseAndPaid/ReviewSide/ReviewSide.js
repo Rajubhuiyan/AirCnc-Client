@@ -8,7 +8,8 @@ const ReviewSide = () => {
 
     const navigate = useNavigate();
     const {  reserveInfo } = useAuth();
-    if (reserveInfo.fromDate === undefined) {
+    const {reservedInfo} = reserveInfo;
+    if (reservedInfo.fromDate === undefined) {
         navigate("/")
     }
 
@@ -23,7 +24,7 @@ const ReviewSide = () => {
 
                         <Box>
                             <Typography variant="h5" gutterBottom>
-                                <span style={{ fontWeight: 'bold' }}>${reserveInfo.perDayPrice}</span> /night
+                                <span style={{ fontWeight: 'bold' }}>${reservedInfo.perDayPrice}</span> /night
                             </Typography>
                         </Box>
 
@@ -33,16 +34,16 @@ const ReviewSide = () => {
                             </Typography>
                             <div className="dates-container">
                                 <div style={{ display: 'flex', justifyContent: 'space-between', paddingRight: '20px', paddingLeft: '20px' }}>
-                                    <h3>{reserveInfo.fromDate}</h3>
+                                    <h3>{reservedInfo.fromDate}</h3>
                                     <h3>→</h3>
-                                    <h3>{reserveInfo.toDate}</h3>
+                                    <h3>{reservedInfo.toDate}</h3>
                                 </div>
                             </div>
                         </Box>
                         <Box>
                             <div style={{ display: 'flex', justifyContent: 'space-between', paddingRight: '20px', paddingLeft: '20px', borderBottom: '1px solid lightgrey' }}>
-                                <p>${reserveInfo.perDayPrice} X {reserveInfo.totalNight} nights</p>
-                                <p>${reserveInfo.perDayPrice * reserveInfo.totalNight}</p>
+                                <p>${reservedInfo.perDayPrice} X {reservedInfo.totalNight} nights</p>
+                                <p>${reservedInfo.perDayPrice * reservedInfo.totalNight}</p>
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'space-between', paddingRight: '20px', paddingLeft: '20px', borderBottom: '1px solid lightgrey' }}>
                                 <p>Cleaning Fee</p>
@@ -54,7 +55,7 @@ const ReviewSide = () => {
                             </div>
                             <div style={{ display: 'flex', justifyContent: 'space-between', paddingRight: '20px', paddingLeft: '20px', borderBottom: '1px solid lightgrey' }}>
                                 <h3>Total</h3>
-                                <h3>${reserveInfo.totalPrice}</h3>
+                                <h3>${reservedInfo.totalPrice}</h3>
                             </div>
                         </Box>
 

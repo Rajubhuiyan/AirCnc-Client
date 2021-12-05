@@ -9,7 +9,7 @@ import { Button } from '@mui/material';
 const HouseRules = ({ isReview, isHouseRule, reserveData }) => {
 
 
-    const { location, fromDate, toDate, totalNight } = reserveData;
+    const { location, fromDate, toDate, totalNight } = reserveData.reservedInfo;
     // loc && loc.charAt(0).toUpperCase() + loc.slice(1)
     return (
         <div>

@@ -36,7 +36,7 @@ const SimpleCardForm = () => {
         if (error) {
             setPaymentError(error.message)
         } else {
-            console.log('[PaymentMethod]', paymentMethod);
+            // console.log('[PaymentMethod]', paymentMethod);
             setPaymentError('Payment Succesfully');
             setPayment({user: user.email, card: paymentMethod.card, status: 'success', reserveInfo: reserveInfo })
             navigate("/paymentSuccess")

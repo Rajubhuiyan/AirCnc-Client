@@ -25,10 +25,11 @@ const SecondNav = () => {
                             </Typography>
                             <nav>
                                 <Link
+                                style={{cursor: 'pointer'}}
+                                    onClick={() => window.location.href = 'https://facebook.com/RajuBhuiyann/'}
                                     underline="none"
                                     variant="button"
                                     color="text.primary"
-                                    href="#"
                                     sx={{ mx: 1 }}
                                 >
                                     Help

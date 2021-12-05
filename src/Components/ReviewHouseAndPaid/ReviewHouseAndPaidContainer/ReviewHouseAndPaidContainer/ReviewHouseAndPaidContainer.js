@@ -8,6 +8,7 @@ import About from '../../About/About';
 import Payment from '../../Payment/Payment';
 import ReviewSide from '../../ReviewSide/ReviewSide';
 import Loader from '../../../Shared/Navbar/Loader/Loader';
+import { useParams } from 'react-router';
 
 const ReviewHouseAndPaidContainer = () => {
 
@@ -16,21 +17,34 @@ const ReviewHouseAndPaidContainer = () => {
     const [riview, isReview] = useState(false);
     const [payment, isPayment] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
-    const {setReserveInfo} = useAuth();
+    const { setReserveInfo } = useAuth();
     const { user } = useAuth();
-
+    const { reviewId } = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/getReserveData?email=${user.email}`)
-            .then(res => res.json())
-            .then(data => {
-                const lastElement = data[data.length - 1];
-                setReserveData(lastElement.reservedInfo);
-                setReserveInfo(lastElement.reservedInfo)
-                setIsLoading(false);
-            })
-            .catch(err => console.log(err))
-    }, []);
+        if (reviewId) {
+            fetch(`http://localhost:5000/paymentReserved/${reviewId}`)
+                .then(res => res.json())
+                .then(data => {
+                    setReserveData({reservedInfo: data.reservedInfo, _id: data._id});
+                    setReserveInfo({reservedInfo: data.reservedInfo, _id: data._id});
+                    setIsLoading(false);
+                })
+                .catch(err => console.log(err))
+        }
+        else {
+            fetch(`http://localhost:5000/getReserveData?email=${user.email}`)
+                .then(res => res.json())
+                .then(data => {
+                    const lastElement = data[data.length - 1];
+                    setReserveData({reservedInfo: lastElement.reservedInfo, _id: lastElement._id});
+                    setReserveInfo({reservedInfo: lastElement.reservedInfo, _id: lastElement._id})
+                    setIsLoading(false);
+                })
+                .catch(err => console.log(err))
+        }
+    }, [])
+
 
     return (
         <Container style={{ height: '100vh', alignItems: 'center', display: 'flex' }}>

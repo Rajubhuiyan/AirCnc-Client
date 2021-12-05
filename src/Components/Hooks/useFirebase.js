@@ -10,7 +10,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [token, setToken] = useState('');
     const [reserveInfo, setReserveInfo] = useState({});
-    const [payment, setPayment] = useState({});
+    const [payment, setPayment] = useState({id: false});
 
     const auth = getAuth();
     const provider = new GoogleAuthProvider();

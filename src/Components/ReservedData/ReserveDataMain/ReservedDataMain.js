@@ -1,6 +1,7 @@
 import { Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
+import { Link } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import Loader from '../../Shared/Navbar/Loader/Loader';
 
@@ -30,7 +31,7 @@ const ReservedDataMain = () => {
     }
 
     return (
-        <Container sx={{mt: 6}}>
+        <Container sx={{ mt: 6 }}>
 
             {isLoading ? <Loader /> :
                 <TableContainer component={Paper}>
@@ -61,7 +62,7 @@ const ReservedDataMain = () => {
                                     <TableCell align="center">$ {row.reservedInfo.totalPrice}</TableCell>
                                     <TableCell align="right">{row.reservedInfo.fromDate}</TableCell>
                                     <TableCell align="right">{row.reservedInfo.toDate}</TableCell>
-                                    <TableCell align="right"><Button className="reserve-button">Payment</Button></TableCell>
+                                    <TableCell align="right">{row.payment === 'Success' ? 'Success' : <Link style={{ textDecoration: "none" }} to={`/review/${row._id}`}><Button className="reserve-button">Payment</Button></Link>}</TableCell>
                                 </TableRow>
                             ))}
                         </TableBody>
