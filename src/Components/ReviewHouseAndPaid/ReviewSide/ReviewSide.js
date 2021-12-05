@@ -8,17 +8,12 @@ const ReviewSide = () => {
 
     const navigate = useNavigate();
     const {  reserveInfo } = useAuth();
-
-
     if (reserveInfo.fromDate === undefined) {
         navigate("/")
     }
 
     const cleaningFee = 10;
     const serviceFee = 21;
-
-
-
 
     return (
         <Box>

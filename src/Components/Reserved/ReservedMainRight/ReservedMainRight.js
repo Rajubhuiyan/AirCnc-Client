@@ -12,7 +12,7 @@ const ReservedMainRight = ({ reserveData }) => {
 
 
     const navigate = useNavigate();
-    const { searchData, setReserveInfo } = useAuth();
+    const { searchData} = useAuth();
     const { fromDate, toDate } = searchData;
     const { price, rate, name, loc } = reserveData;
 
@@ -50,7 +50,7 @@ const ReservedMainRight = ({ reserveData }) => {
         const personalInfo = { name: user.displayName, photo: user.photoURL, token: token }
         const reservedInfo = { totalPrice: totalPrice, totalNight: totalNight, fromDate: fromDate.toLocaleDateString(), toDate: toDate.toLocaleDateString(), hotelName: name, perDayPrice: price, location: loc };
         const finalData = { email: user.email, personalInfo: personalInfo, reservedInfo: reservedInfo };
-        fetch('https://aircnc00.herokuapp.com/reserveSaveInDb', {
+        fetch('http://localhost:5000/reserveSaveInDb', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(finalData)
@@ -58,15 +58,11 @@ const ReservedMainRight = ({ reserveData }) => {
             .then(res => res.json())
             .then(data => {
                 if (data) {
-                    setReserveInfo(data.reservedInfo)
                     navigate("/review/")
                 }
             })
             .catch(err => console.log(err))
     }
-
-
-
     return (
         <Box>
             <Card sx={{ minWidth: 275 }}>

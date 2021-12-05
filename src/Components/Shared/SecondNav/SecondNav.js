@@ -36,10 +36,17 @@ const SecondNav = () => {
                             </nav>
                             {
                                 user.email ?
-                                    <Button onClick={handleSignOut} variant="outlined" sx={{ px: 3, py: 1, my: 1, mx: 1.5 }}>
-                                        Log Out
-                                    </Button> :
-                                    <NavLink style={{textDecoration: "none" }} to="/login">
+                                    <div>
+                                        <NavLink style={{ textDecoration: "none" }} to="/reserved/">
+                                            <Button variant="outlined" sx={{ px: 3, py: 1, my: 1, mx: 1.5 }}>
+                                                Reserved
+                                            </Button>
+                                        </NavLink>
+                                        <Button onClick={handleSignOut} variant="outlined" sx={{ px: 3, py: 1, my: 1, mx: 1.5 }}>
+                                            Log Out
+                                        </Button>
+                                    </div> :
+                                    <NavLink style={{ textDecoration: "none" }} to="/login">
                                         <Button variant="outlined" sx={{ px: 3, py: 1, my: 1, mx: 1.5 }}>
                                             Login
                                         </Button>

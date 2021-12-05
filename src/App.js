@@ -5,6 +5,7 @@ import Home from './Components/Home/Home/Home';
 import Login from './Components/Login/Login/Login';
 import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 import ReservedContainer from './Components/Reserved/ReservedContainer/ReservedContainer';
+import ReservedDataContainer from './Components/ReservedData/ReservedDataContainer/ReservedDataContainer';
 import PaymentSucces from './Components/ReviewHouseAndPaid/Payment/PaymentSuccess/PaymentSucces';
 import ReviewHouseAndPaidContainer from './Components/ReviewHouseAndPaid/ReviewHouseAndPaidContainer/ReviewHouseAndPaidContainer/ReviewHouseAndPaidContainer';
 import SearchResultContainer from './Components/SearchResult/SearchResultContainer/SearchResultContainer';
@@ -22,6 +23,8 @@ function App() {
             <Route path="/review/" element={<ReviewHouseAndPaidContainer/>} />
             <Route path="/login/" element={<Login/>} />
             <Route path="/paymentSuccess/" element={<PaymentSucces/>} />
+            <Route path="/reserved/" element={<ReservedDataContainer/>} />
+
           </Routes>
         </Router>
       </AuthProvider>
