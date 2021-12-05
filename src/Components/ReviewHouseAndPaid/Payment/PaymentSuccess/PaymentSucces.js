@@ -26,7 +26,7 @@ const PaymentSucces = () => {
     useEffect(() => {
         
         if (isPaymentSuccess === true) {
-            fetch(`http://localhost:5000/isPaymentSuccess/${payment.reserveInfo._id}`, {
+            fetch(`https://aircnc00.herokuapp.com/isPaymentSuccess/${payment.reserveInfo._id}`, {
                 method: 'PUT',
                 headers: { 'content-Type': 'application/json'}
             })

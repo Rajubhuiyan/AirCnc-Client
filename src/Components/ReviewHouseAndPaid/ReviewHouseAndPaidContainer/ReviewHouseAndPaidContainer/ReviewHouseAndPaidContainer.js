@@ -23,7 +23,7 @@ const ReviewHouseAndPaidContainer = () => {
 
     useEffect(() => {
         if (reviewId) {
-            fetch(`http://localhost:5000/paymentReserved/${reviewId}`)
+            fetch(`https://aircnc00.herokuapp.com/paymentReserved/${reviewId}`)
                 .then(res => res.json())
                 .then(data => {
                     setReserveData({reservedInfo: data.reservedInfo, _id: data._id});
@@ -33,7 +33,7 @@ const ReviewHouseAndPaidContainer = () => {
                 .catch(err => console.log(err))
         }
         else {
-            fetch(`http://localhost:5000/getReserveData?email=${user.email}`)
+            fetch(`https://aircnc00.herokuapp.com/getReserveData?email=${user.email}`)
                 .then(res => res.json())
                 .then(data => {
                     const lastElement = data[data.length - 1];

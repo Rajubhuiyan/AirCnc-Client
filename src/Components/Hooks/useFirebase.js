@@ -23,9 +23,9 @@ const useFirebase = () => {
         signInWithPopup(auth, provider)
             .then((result) => {
 
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                const user = result.user;
+                // const credential = GoogleAuthProvider.credentialFromResult(result);
+                // const token = credential.accessToken;
+                // const user = result.user;
                 const destination = location?.state?.from || '/';
                 navigate(destination)
             }).catch((error) => {

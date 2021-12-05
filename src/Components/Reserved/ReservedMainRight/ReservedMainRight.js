@@ -50,7 +50,7 @@ const ReservedMainRight = ({ reserveData }) => {
         const personalInfo = { name: user.displayName, photo: user.photoURL, token: token }
         const reservedInfo = { totalPrice: totalPrice, totalNight: totalNight, fromDate: fromDate.toLocaleDateString(), toDate: toDate.toLocaleDateString(), hotelName: name, perDayPrice: price, location: loc };
         const finalData = { email: user.email, personalInfo: personalInfo, reservedInfo: reservedInfo };
-        fetch('http://localhost:5000/reserveSaveInDb', {
+        fetch('https://aircnc00.herokuapp.com/reserveSaveInDb', {
             method: 'POST',
             headers: { 'content-type': 'application/json' },
             body: JSON.stringify(finalData)

@@ -16,7 +16,7 @@ const ReservedDataMain = () => {
     const [reservedData, setReservedData] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/getReserved?email=${user.email}`)
+        fetch(`https://aircnc00.herokuapp.com/getReserved?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 setReservedData(data);

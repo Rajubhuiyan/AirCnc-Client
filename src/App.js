@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './Components/Contexts/AuthProvide/AuthProvider';
 import Home from './Components/Home/Home/Home';
-import useAuth from './Components/Hooks/useAuth';
 import Login from './Components/Login/Login/Login';
 import PrivateRoute from './Components/Login/PrivateRoute/PrivateRoute';
 import NotFoundPage from './Components/NotFoundPage/NotFoundPage';
