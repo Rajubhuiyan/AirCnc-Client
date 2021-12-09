@@ -35,6 +35,7 @@ const Header = () => {
     const navigate = useNavigate();
 
 
+
     const handleLocationValue = (e) => {
         if (e.target.value) {
             setLocation(e.target.value);
@@ -70,9 +71,6 @@ const Header = () => {
     }, []);
 
 
-
-
-
     return (
         <div >
             <Grid container spacing={2}>
@@ -91,8 +89,8 @@ const Header = () => {
                         </Grid>
                     </Grid>
 
-                    <Grid container sx={{ mb: 5 }} spacing={3}>
-                        <Grid scx="true" item xs={12} sm={6} md={6} lg={6}>
+                    <Grid container sx={{ mb: 5 }} spacing={{md:1, lg: 3}}>
+                        <Grid scx="true" item xs={12} sm={12} md={12} lg={6}>
                             <Card className="date-container" style={{ boxShadow: "1px 1px 8px lightgrey" }}>
                                 <CardContent >
 
@@ -115,7 +113,7 @@ const Header = () => {
                                 </CardContent>
                             </Card>
                         </Grid>
-                        <Grid item xs={12} sm={6} md={6} lg={6}>
+                        <Grid item xs={12} sm={12} md={12} lg={6}>
                             <Card className="date-container" style={{ boxShadow: "1px 1px 8px lightgrey" }}>
                                 <CardContent>
 
