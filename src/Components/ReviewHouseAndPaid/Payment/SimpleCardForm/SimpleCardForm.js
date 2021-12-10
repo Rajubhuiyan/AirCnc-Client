@@ -45,11 +45,11 @@ const SimpleCardForm = () => {
 
     return (
         <div style={{display: 'flex', justifyContent: 'center'}}>
-            <div style={{width: '400px', border: '1px solid black', padding: '40px'}}>
+            <div style={{width: '500px', border: '1px solid black', padding: '70px'}}>
                 <div >
                     <form onSubmit={handleSubmit}>
                         <CardElement />
-                        <Button sx={{mt: 5}} className="reserve-button" type="submit" disabled={!stripe}>
+                        <Button sx={{mt: 7}} className="reserve-button" type="submit" disabled={!stripe}>
                             Pay
                         </Button>
                     </form>

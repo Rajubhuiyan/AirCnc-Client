@@ -20,7 +20,7 @@ const SecondNav = () => {
                 >
                     <Container>
                         <Toolbar sx={{ flexWrap: 'wrap' }}>
-                            <Typography fontWeight='500' variant="h3" color="#2bde8c" noWrap sx={{ flexGrow: 1 }}>
+                            <Typography fontWeight='500' variant="h3" color="#2bde8c" noWrap sx={{ flexGrow: {xs :1,sm: 1, md: 1, lg:1}, fontSize:{xs: '26px', sm: '50px'}}}>
                                 <NavLink style={{ color: '#2bde8c', textDecoration: "none" }} to="/">Air Cnc</NavLink>
                             </Typography>
                             <nav>
