@@ -12,7 +12,6 @@ import ReviewHouseAndPaidContainer from './Components/ReviewHouseAndPaid/ReviewH
 import SearchResultContainer from './Components/SearchResult/SearchResultContainer/SearchResultContainer';
 
 function App() {
-
   
 
   return (
@@ -21,7 +20,7 @@ function App() {
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/serched/" element={<SearchResultContainer/>} />
+            <Route path="/search/:searchLoc" element={<SearchResultContainer/>} />
             <Route path="/reserve/:reserveId/" element={<PrivateRoute><ReservedContainer/></PrivateRoute>} />
             <Route path="/review/:reviewId" element={<ReviewHouseAndPaidContainer/>} />
             <Route path="/review/" element={<ReviewHouseAndPaidContainer/>} />

@@ -5,9 +5,11 @@ import StarIcon from '@mui/icons-material/Star';
 import './ReservedMainRight.css';
 import useAuth from '../../Hooks/useAuth';
 import { useNavigate } from 'react-router';
+
+
 const ReservedMainRight = ({ reserveData }) => {
 
-
+    const [totalNight, setTotalNight] = useState(1);
     const { user, token } = useAuth();
 
 
@@ -16,11 +18,11 @@ const ReservedMainRight = ({ reserveData }) => {
     const { fromDate, toDate } = searchData;
     const { price, rate, name, loc } = reserveData;
 
-    const [totalNight, setTotalNight] = useState(1)
+   
 
 
     if (fromDate === undefined) {
-        navigate("/")
+        navigate("/");
     }
 
     const cleaningFee = 10;

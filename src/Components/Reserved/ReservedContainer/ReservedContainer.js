@@ -6,13 +6,14 @@ import ReservedHeader from '../ReservedHeader/ReservedHeader';
 import ReservedMain from '../ReservedMain/ReservedMain';
 
 const ReservedContainer = () => {
+    const [reserveData, setReserveData] = useState({});
+    const [isLoading, setIsLoading ] = useState(true);
     const { reserveId } = useParams();
 
     const load = window.onloadstart;
 
 
-    const [reserveData, setReserveData] = useState({});
-    const [isLoading, setIsLoading ] = useState(true);
+    
 
 
     useEffect(() => {
@@ -20,8 +21,8 @@ const ReservedContainer = () => {
             .then(res => res.json())
             .then(data => {
                 if (data) {
-                    setReserveData(data)
-                    setIsLoading(false)
+                    setReserveData(data);
+                    setIsLoading(false);
                 }
             })
             .catch(err => console.error(err))

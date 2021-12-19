@@ -47,7 +47,7 @@ const ReviewHouseAndPaidContainer = () => {
 
 
     return (
-        <Container style={{ height: '100vh', alignItems: 'center', display: 'flex' }}>
+        <Container style={{ height: '100vh', alignItems: 'center', display: 'flex',}}>
             {
                 isLoading ? <Loader /> :
                     <Grid container spacing={6}>

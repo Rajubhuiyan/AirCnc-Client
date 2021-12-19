@@ -50,8 +50,8 @@ const Header = () => {
             adult: adult,
             baby: baby,
             child: child,
-        })
-        navigate("/serched/")
+        });
+        navigate(`/search/${location}`)
 
     }
 

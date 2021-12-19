@@ -1,39 +1,35 @@
 import { Grid } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
 import useAuth from '../../Hooks/useAuth';
 import Loader from '../../Shared/Navbar/Loader/Loader';
 import MapSide from '../MapSide/MapSide';
 import SearchCategories from '../SearchCategories/SearchCategories';
+import {  useParams } from 'react-router';
+
 
 const SearchMain = () => {
 
-    const navigate = useNavigate()
 
     const { searchData } = useAuth();
+    const {searchLoc} = useParams();
 
-    const load = window.onloadstart;
     const [searchDataFromDb, setSearchDataFromDb] = useState([]);
     const [check, setCheck] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`https://aircnc00.herokuapp.com/getBySearch/${searchData.searchCity}`)
+        fetch(`https://aircnc00.herokuapp.com/getBySearch/${searchLoc}`)
             .then(res => res.json())
             .then(data => {
                 setSearchDataFromDb(data)
                 if (data !== '') {
-                    setCheck(data[0])
+                    setCheck(data[0]);
                 }
                 setIsLoading(false)
             })
             .catch(err => console.log(err))
-    }, [searchData, load])
+    }, [searchLoc])
 
-    
-    if (searchData.searchCity === undefined && check === undefined) {
-        navigate("/")
-    }
 
     return (
         <Grid container spacing={4}>
